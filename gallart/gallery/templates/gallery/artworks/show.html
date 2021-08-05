@@ -1,0 +1,8 @@
+{% extends "generic/base.html" %}
+
+{% block content %}
+    <h1>{{ artwork.title }}</h1>
+    <img src="{{ artwork.url }}" alt="{{ artwork.title }}" style="object-fit: contain; max-height: 80vh; max-width:
+    80vw"/>
+    <p><strong>Genre:</strong> {{ artwork.genre.all|join:", " }}</p>
+{% endblock %}

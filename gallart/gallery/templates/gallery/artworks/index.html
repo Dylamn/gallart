@@ -1,0 +1,20 @@
+{% extends 'generic/base.html' %}
+
+{% block title %}
+    The Gallery
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the gallery</h1>
+    <p>A collection of sublime arts.</p>
+    <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+    {% if artworks %}
+        <h2>Artworks</h2>
+        {% for artwork in artworks %}
+            <a href="{% url 'gallery:show' artwork.slug %}">
+                <img src="{{ artwork.url }}" alt="{{ artwork.title }}"
+                     width="400px" height="250px" style="object-fit: contain"/>
+            </a>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
